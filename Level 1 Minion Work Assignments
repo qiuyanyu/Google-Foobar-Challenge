@@ -49,7 +49,7 @@ If your solution passes the test cases, it will be removed from your home folder
 
 
 ***************************
---- My Solution in Pyton---
+--- My Solution in Python---
 ***************************
 def solution(data, n): 
     # Your code here
