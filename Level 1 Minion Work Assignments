@@ -47,6 +47,17 @@ Use verify [file] to test your solution and see how it does. When you are finish
 If your solution passes the test cases, it will be removed from your home folder.
 
 
-********************
---- My Solution ---
-********************
+***************************
+--- My Solution in Pyton---
+***************************
+def solution(data, n): 
+    # Your code here
+    results = []
+    if len(data) < 100:
+        for i in data:
+            if (i not in results) and data.count(i)<=n:
+                results.append(i)
+    return results
+    
+solution([5, 10, 15, 10, 7], 1)
+
