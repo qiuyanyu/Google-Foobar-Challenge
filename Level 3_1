@@ -1,0 +1,28 @@
+def solution(x, y):
+    # find the maximum between x and y
+    int_x_y = [int(x), int(y)]
+    x, y = max(int_x_y), min(int_x_y)
+
+    # if one is zero, mission impossible
+    if x * y == 0:
+        return 'impossible'
+    
+    # to get the maximum, how many times needed to duplicate the minimum value?
+    min_in_max = (x//y) - 1
+    count = min_in_max # duplicated times
+    # remove duplicated min in max
+    x = x - (y * (min_in_max )) 
+
+    # regular iterator: from final to initial
+    bombs = max(x, y), min(x, y)
+    print(bombs)
+    while (bombs[0] > 1) or (bombs[1] > 1):
+        bombs = max(bombs[0] - bombs[1], bombs[1]), min(bombs[0] - bombs[1], bombs[1])
+        print(bombs)
+        count = count + 1
+ 
+        if bombs[0] < 1 or bombs[1] < 1:
+            return 'impossible'
+    return str(count)
+    
+solution(10**10, '19')
