@@ -1,0 +1,22 @@
+def solution(xs):
+
+    neg = [num for num in xs if num < 0]
+    pos = [num for num in xs if num > 0]
+    zeros = [num for num in xs if num == 0]
+    
+    if (len(neg)==1) & (len(pos)==0) & (len(zeros)==0):
+        return str(neg[0])
+    if (len(neg)==1) & (len(pos)==0) & (len(zeros) > 0):
+        return "0"
+    
+    if len(neg) % 2 != 0:
+        neg.sort()
+        neg.pop()
+    if pos or neg:
+        final =1
+        for x in pos + neg:
+            final = final * x
+        return str(final)
+    return '0'
+
+solution([2, 0, 2, 2, 0])
