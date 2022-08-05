@@ -1,0 +1,26 @@
+def solution(src, dest):
+    #  next move possibilities: row, column
+    poss_moves = [(1,-2), (-1,-2), (1,2), (-1,2), (2,-1), (2,1), (-2,-1), (-2, 1)]
+    
+    new_locs = [src]
+    num_moves = 0
+    
+    while (dest not in new_locs):
+        all_pos_locs = []
+        for p in new_locs:
+            # covert p to coords in row and column
+            coords = int(p/8), int(p%8)
+            # find all the possible new locations
+            for m in poss_moves:
+                c1 = coords[0] + m[0]
+                c2 = coords[1] + m[1]
+                # if c1 and c2 still on board, keep and convert to serial number
+                if (0 <= c1 < 8) & (0 <= c2 < 8):
+                    next_loc_ser = c1 * 8 + c2
+                    all_pos_locs.append(next_loc_ser)
+            
+        # update new positions
+        new_locs = all_pos_locs
+        num_moves = num_moves + 1
+    
+    return num_moves
